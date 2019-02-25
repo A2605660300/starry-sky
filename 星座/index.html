@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <!--避免IE使用兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--优先使用 IE 最新版本和 Chrome:-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--WebApp全屏模式   隐藏地址栏。-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--禁止百度转码显示。-->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!--忽略页面中的数字识别为电话，忽略email识别：-->
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <title>启动页</title>
+    <link rel="stylesheet" href="reset.css">
+    <!--设置rem-->
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    // orientationchange 事件是在用户水平或者垂直翻转设备（即方向发生变化）时触发的事件。
+                    // onresize 事件会在窗口或框架被调整大小时发生。
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        window.clientWidth = docEl.clientWidth;
+                        if (!window.clientWidth) return;
+                        docEl.style.fontSize = 50 * (window.clientWidth / 375) + 'px';
+                        window.base = 50 * (window.clientWidth / 375);
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <!--<script>-->
+        <!--function refresh() {-->
+            <!--var deviceWidth = document.documentElement.clientWidth;//移动端的浏览器视口的宽度 pc端用的是coffsetWidth;-->
+            <!--if (deviceWidth > 1080) {-->
+                <!--document.documentElement.style.fontSize = 1080 / 10.8 + "px";-->
+            <!--} else {-->
+                <!--document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";-->
+            <!--}-->
+        <!--}-->
+        <!--refresh();-->
+        <!---->
+    <!--</script>-->
+</head>
+<body>
+<style>
+    img{
+        display: block;
+        width: 100vw;
+        height: 100vh;
+    }
+    .click{
+        position: absolute;
+        bottom: 1.6rem;
+        left: 1.2rem;
+        width: 70%;
+        height: 6.5vh;
+    }
+</style>
+<div>
+    <img src="img/qdy2.png" alt="">
+    <div class="click" onclick="op()"></div>
+</div>
+</body>
+<script>
+    function op() {
+        console.log(1);
+    }
+</script>
+</html>
